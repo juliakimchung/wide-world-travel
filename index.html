@@ -36,16 +36,19 @@
 
   <div ng-controller="bookCtrl">
  <!--  <h1>{{Welcome Travel Guide}}</h1> -->
+ <div ng-repeat="books in items | filter: searchText.search">
+   <div class="panel panel-default">
+     <div class="panel-body">
+       <div class="col-xs-1"><input type="checkbox" name=""/></div>
+       <div class="col-xs-7"><a ng-href="#/books/{{items.id}}">{{books.title}}</a></div>
+       <div class="col-xs-2">{{books.type}}</div>
+       <div class="col-xs-1">{{books.price}}</div>
+       <div class="col-xs-1"><button class="btn btn-danger" ng-click="remove(itemId)">X</button></div>
+     </div>
+   </div>
+ </div>
 
-    <ul ng-repeat="toes in items">
-      
-      <li>{{toes.title}}</li>
-      <li>{{toes.type}}</li>
-      <li>{{toes.price}}</li>
-     
-
-    </ul>
-
+    
   </div>
 
 
@@ -55,8 +58,12 @@
 </script>
 <script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
 <script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="lib/bower_components/firebase/firebase.js"></script>
+
 <script type="text/javascript" src="app/app.js"></script>
 <script type="text/javascript" src="app/controller/bookCtrl.js"></script>
+<script type="text/javascript" src="app/controller/singleViewCtrl.js"></script>
+<script type="text/javascript" src="app/controller/navbarCtrl.js"></script>
 <script type="text/javascript" src="app/factories/guideFactory.js"></script>
 <script type="text/javascript" src="app/values/fb-creds.js"></script>
 

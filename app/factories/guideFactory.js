@@ -1,5 +1,5 @@
 "use strict";
-app.factory("ItemStorage", ($http, FBCreds) => {
+app.factory("guideFactory", ($http, FBCreds) => {
 
 	let getItemList = () => {
 		let items = [];

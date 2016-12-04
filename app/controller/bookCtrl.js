@@ -1,7 +1,7 @@
 "use strict";
 
-app.controller('bookCtrl' , function($scope, ItemStorage){
-  ItemStorage.getItemList()
+app.controller('bookCtrl' , function($scope, guideFactory){
+  guideFactory.getItemList()
   .then((itemArray) => {
     $scope.items = itemArray;
     $scope.$apply();

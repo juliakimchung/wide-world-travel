@@ -1,0 +1,11 @@
+<div ng-repeat="books in items | filter: searchText.search">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="col-xs-1"><input type="checkbox" name=""/></div>
+      <div class="col-xs-7"><a ng-href="#/books/{{items.id}}">{{books.title}}</a></div>
+      <div class="col-xs-2">{{books.type}}</div>
+      <div class="col-xs-1">{{books.price}}</div>
+      <div class="col-xs-1"><button class="btn btn-danger" ng-click="remove(itemId)">X</button></div>
+    </div>
+  </div>
+</div>
