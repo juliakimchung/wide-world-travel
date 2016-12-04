@@ -40,7 +40,7 @@
    <div class="panel panel-default">
      <div class="panel-body">
        <div class="col-xs-1"><input type="checkbox" name=""/></div>
-       <div class="col-xs-7"><a ng-href="#/books/{{items.id}}">{{books.title}}</a></div>
+       <div class="col-xs-7"><a ng-href="#/books/{{books.id}}">{{books.title}}</a></div>
        <div class="col-xs-2">{{books.type}}</div>
        <div class="col-xs-1">{{books.price}}</div>
        <div class="col-xs-1"><button class="btn btn-danger" ng-click="remove(itemId)">X</button></div>
@@ -61,11 +61,11 @@
 <script type="text/javascript" src="lib/bower_components/firebase/firebase.js"></script>
 
 <script type="text/javascript" src="app/app.js"></script>
+<script type="text/javascript" src="app/factories/guideFactory.js"></script>
+<script type="text/javascript" src="app/values/fb-creds.js"></script>
 <script type="text/javascript" src="app/controller/bookCtrl.js"></script>
 <script type="text/javascript" src="app/controller/singleViewCtrl.js"></script>
 <script type="text/javascript" src="app/controller/navbarCtrl.js"></script>
-<script type="text/javascript" src="app/factories/guideFactory.js"></script>
-<script type="text/javascript" src="app/values/fb-creds.js"></script>
 
 </body>
 </html>

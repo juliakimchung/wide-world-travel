@@ -7,9 +7,9 @@ app.factory("guideFactory", ($http, FBCreds) => {
 		return new Promise((resolve, reject)=> {
 			$http.get(`${FBCreds.URL}/guides.json`)
 			.success((itemObject)=> {
-				//console.log("", );
-				let itemCollection = itemObject;Object.keys(itemCollection).forEach((key)=>{
-					console.log("itemCollection",itemCollection );
+				let itemCollection = itemObject;
+				Object.keys(itemCollection).forEach((key)=>{
+					//console.log("itemCollection",itemObject );
 					itemCollection[key].id = key;
 					items.push(itemCollection[key]);
 				});
@@ -21,11 +21,12 @@ app.factory("guideFactory", ($http, FBCreds) => {
 		});
 	};
 
-	let getSingleItem = (itemId) => {
+	let getSingleItem = (bookId) => {
 		return new Promise((resolve, reject)=>{
-			$http.get(`${FBCreds.URL}/guides/${itemId}.json`)
+			$http.get(`${FBCreds.URL}/guides/${bookId}.json`)
 			.success((itemObject)=> {
 				resolve(itemObject);
+				console.log("itemObject after promise",itemObject );
 			})
 			.error((error) => {
 				reject(error);
