@@ -7,7 +7,8 @@
   <link rel="stylesheet" type="text/css" href="css/main.css">
 
 </head>
-<body ng-app = "TravelGuideApp">
+<body ng-app="TravelGuideApp">
+  <div ng-include="partials/navBar.html"></div>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -23,7 +24,12 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <!-- TODO: Use Angular to loop through nav items -->
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"></a></li>
+          <li><a href="#">All Books</a></li>
+          <li><a href="#">New Book</a></li>
+          <li><a href="#">Login/Register</a></li>
+          <li><a href="#">Logout</a></li>
+
+
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -31,16 +37,19 @@
 
   <div ng-controller="bookCtrl">
  <!--  <h1>{{Welcome Travel Guide}}</h1> -->
+ <div ng-repeat="books in items | filter: searchText.search">
+   <div class="panel panel-default">
+     <div class="panel-body">
+       <div class="col-xs-1"><input type="checkbox" name=""/></div>
+       <div class="col-xs-7"><a ng-href="#/books/{{books.id}}">{{books.title}}</a></div>
+       <div class="col-xs-2">{{books.type}}</div>
+       <div class="col-xs-1">{{books.price}}</div>
+       <div class="col-xs-1"><button class="btn btn-danger" ng-click="remove(itemId)">X</button></div>
+     </div>
+   </div>
+ </div>
 
-    <ul ng-repeat="item in bookItems">
-      
-      <li>{{item.title}}</li>
-      <li>{{item.type}}</li>
-      <li>{{item.price}}</li>
-     
-
-    </ul>
-
+    
   </div>
 
 
@@ -49,7 +58,20 @@
 <script type="text/javascript" src="lib/bower_components/bootstrap/dist/js/bootstrap.min.js">
 </script>
 <script type="text/javascript" src="lib/bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="lib/bower_components/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="lib/bower_components/firebase/firebase.js"></script>
+
 <script type="text/javascript" src="app/app.js"></script>
+<script type="text/javascript" src="app/factories/guideFactoryCtrl.js"></script>
+<script type="text/javascript" src="app/factories/AuthFactoryCtrl.js"></script>
+<script type="text/javascript" src="app/factories/FilterFactoryCtrl.js"></script>
+
+<script type="text/javascript" src="app/values/fb-creds.js"></script>
+
 <script type="text/javascript" src="app/controller/bookCtrl.js"></script>
+<script type="text/javascript" src="app/controller/singleViewCtrl.js"></script>
+<script type="text/javascript" src="app/controller/TopCtrl.js"></script>
+<script type="text/javascript" src="app/controller/LoginCtrl.js"></script>
+
 </body>
 </html>
