@@ -9,7 +9,7 @@ console.log("FBCreds", FBCreds);
 			.success((itemObject)=> {
 				let itemCollection = itemObject;
 				Object.keys(itemCollection).forEach((key)=>{
-					console.log("itemCollection",itemObject );
+					//console.log("itemCollection",itemObject );
 					itemCollection[key].id = key;
 					items.push(itemCollection[key]);
 				});
@@ -46,9 +46,9 @@ console.log("FBCreds", FBCreds);
 		});
 	};
 
-let postNewBook = (bookId) => {
+let postNewBook = (newTask) => {
 		return new Promise((resolve, reject)=>{
-			$http.post(`${FBCreds.URL}/guides.json`, angular.toJson(bookId))
+			$http.post(`${FBCreds.URL}/guides.json`, JSON.stringify(newTask))
 			.success((itemObject)=> {
 				resolve(itemObject);
 				console.log("itemObject after promise",itemObject );

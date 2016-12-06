@@ -1,6 +1,5 @@
 "use strict";
 let app = angular.module("TravelGuideApp", ["ngRoute"]);
-// app.constant('FBCreds','https://world-wide-travel-a1993.firebaseio.com/');
  app.config(function($routeProvider){
 
 let isAuth = (AuthFactory) => new Promise((resolve, reject) => {
@@ -13,15 +12,12 @@ let isAuth = (AuthFactory) => new Promise((resolve, reject) => {
 		}
 	});
 });
-
-
 	$routeProvider
 	.when("/", {
         templateUrl: "partials/login.html",
         controller: "LoginCtrl"
-    })
-
-	.when('/login', {
+ })
+.when('/login', {
 		templateUrl: 'partials/login.html',
 		controller: 'LoginCtrl'
 	})

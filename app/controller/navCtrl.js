@@ -3,7 +3,7 @@
 app.controller('navCtrl', function($scope, searchTermData, AuthFactory){
 	
 	// console.log("isAuth", isAuth());
-	searchTermData;
+	
 	$scope.searchText = searchTermData;
 	$scope.navItems = [
 		{
