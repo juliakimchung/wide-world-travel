@@ -1,21 +1,29 @@
 "use strict";
-app.controller("navCtrl", function($scope, searchTermData){
+
+app.controller('navCtrl', function($scope, searchTermData, AuthFactory){
+	
+	// console.log("isAuth", isAuth());
+	searchTermData;
 	$scope.searchText = searchTermData;
 	$scope.navItems = [
-	{	name: 'Login/Register',
-		url: '#/login'
-	},
-	{
-		name: 'Logout',
-		url: '#/logout'
-	},
-	{
-		name: "All Items",
-		url: "#/books/list"
-	},
-	{
-		name: "Add Items",
-		url: "#/books/new"
-	}
+		{
+			name: "Logout",
+			url: "#/login"
+		},
+		{
+			name: "Login / Register",
+			url: "#/login"
+		},
+		{
+			name: "All Books",
+			url: "#/books/list"
+		}, 
+		{
+			name: "Add books",
+			url: "#/books/new"
+		}
 	];
+
 });
+
+

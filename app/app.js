@@ -1,6 +1,6 @@
 "use strict";
 let app = angular.module("TravelGuideApp", ["ngRoute"]);
-app.constant('FBCreds','https://world-wide-travel-a1993.firebaseio.com/');
+// app.constant('FBCreds','https://world-wide-travel-a1993.firebaseio.com/');
  app.config(function($routeProvider){
 
 let isAuth = (AuthFactory) => new Promise((resolve, reject) => {
@@ -27,24 +27,25 @@ let isAuth = (AuthFactory) => new Promise((resolve, reject) => {
 	})
 	.when('/books/list',{
 		templateUrl: 'partials/book-list.html',
-		controller: 'bookCtrl' 
-	    //resolve: {isAuth}
+		controller: 'bookCtrl', 
+	    resolve: {isAuth}
 	})
 	.when('/books/new', {
 		templateUrl: 'partials/book-form.html',
-		controller: 'itemNewCtrl',
-	    //resolve: {isAuth}
+		controller: 'addBookCtrl',
+	    resolve: {isAuth}
 	})
 	.when('/books/:bookId', {
 		templateUrl: 'partials/book-details.html',
-		controller: 'singleViewCtrl'
-	   // resolve: {isAuth}
+		controller: 'singleViewCtrl',
+	    resolve: {isAuth}
 	})
 	.otherwise('/books/list');
 });
 
 app.run(($location, FBCreds) => {
 	let creds = FBCreds;
+	console.log("creds", creds.key);
 	let authConfig = {
 
 		apiKey:creds.key, 
