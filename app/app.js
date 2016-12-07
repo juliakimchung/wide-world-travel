@@ -1,6 +1,5 @@
 "use strict";
 let app = angular.module("TravelGuideApp", ["ngRoute"]);
- app.config(function($routeProvider){
 
 let isAuth = (AuthFactory) => new Promise((resolve, reject) => {
 	AuthFactory.isAuthenticated()
@@ -12,6 +11,7 @@ let isAuth = (AuthFactory) => new Promise((resolve, reject) => {
 		}
 	});
 });
+ app.config(function($routeProvider){
 	$routeProvider
 	.when("/", {
         templateUrl: "partials/login.html",
@@ -35,6 +35,11 @@ let isAuth = (AuthFactory) => new Promise((resolve, reject) => {
 		templateUrl: 'partials/book-details.html',
 		controller: 'singleViewCtrl',
 	    resolve: {isAuth}
+	})
+	.when('/edit/:bookId', {
+		templateUrl: 'partials/book-edit.html',
+		controller:"editBookCtrl",
+		resolve:{isAuth}
 	})
 	.otherwise('/books/list');
 });

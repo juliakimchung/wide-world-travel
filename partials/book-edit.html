@@ -1,0 +1,17 @@
+<h1>{{title}}</h1>
+<form>
+	<div class="form-group">
+		<label>Book Title:</label>
+		<input type="text" class="form-control" placeholder="Title" ng-model="editedBook.title">
+	</div>
+	<div class="form-group">
+		<label>Book Type:</label>
+		<input type="text" class="form-control" placeholder="Some important task" ng-model="editedBook.type">
+	</div>
+	<div class="form-group">
+		<label>Book Price:</label>
+		<input type="text" class="form-control" placeholder="Some important task" ng-model="editedBook.price">
+	</div>
+	<button class="btn btn-default" ng-click="editNewBook()">{{btnText}}</button>
+</form>
+

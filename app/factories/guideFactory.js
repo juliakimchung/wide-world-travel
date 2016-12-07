@@ -26,7 +26,7 @@ console.log("FBCreds", FBCreds);
 			$http.delete(`${FBCreds.URL}/guides/${bookId}.json`)
 			.success((itemObject)=> {
 				console.log("itemObject after delete promise", itemObject);
-			resolve(itemObject)
+			resolve(itemObject);
 		})
 			.error((error) => {
 				reject(error);
@@ -46,7 +46,7 @@ console.log("FBCreds", FBCreds);
 		});
 	};
 
-let postNewBook = (newTask) => {
+	let postNewBook = (newTask) => {
 		return new Promise((resolve, reject)=>{
 			$http.post(`${FBCreds.URL}/guides.json`, JSON.stringify(newTask))
 			.success((itemObject)=> {
@@ -58,7 +58,19 @@ let postNewBook = (newTask) => {
 			});
 		});
 	};
+	 let updateSingleBook = (bookId, editedItem) => {
+	 	return new Promise((resolve, reject)=> {
+	 		$http.patch(`${FBCreds.URL}/guides/${bookId}.json`, angular.toJson(editedItem))
+	 			.success((itemObject)=> {
+	 				resolve(itemObject);
+	 				console.log("itemObject after update promise", itemObject );
+	 			})
+	 			.error((error)=> {
+	 				reject(error);
+	 			});
+	 	});
+	 };
 
 console.log("FBCreds", FBCreds);
-	return { getItemList, getSingleItem, deleteSingleItem, postNewBook};
+	return { getItemList, getSingleItem, deleteSingleItem, postNewBook, updateSingleBook};
 });
